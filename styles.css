@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  color: white;
+  background-color: #000f18;
+}
+
+
+
+/* NAVIGATION */
+
+.logo__img {
+  width: 65px;
+  height: 65px;
+  border: 2px solid white;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  height: 300px;
+}
+
+.nav__bar {
+  background-image: url("./Assets/PopcornTheater.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  padding: 24px;
+  margin: 0 auto;
+}
+
+.nav__link--list {
+  display: flex;
+}
+
+.nav__link {
+  margin-left: 24px;
+}
+
+.nav__link--anchor {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+}
+
+.link__contact {
+  border: 2px solid #a01303;
+  border-radius: 50px;
+  padding: 8px 16px;
+  background-color: #a01303;
+  color: white;
+}
+
+.link__contact:hover {
+  background-color: #a01303;
+  transition: 300ms ease;
+}
+
+.search__block {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-size: 64px;
+  letter-spacing: 8px;
+  font-weight: bold;
+}
+
+.search__box {
+  display: flex;
+}
+
+.search__block .search__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.search__block input {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px 80px 16px 20px;
+  border-radius: 50px;
+  border: none;
+  background: white;
+  color: black;
+}
+
+.search__block .btn {
+  padding: 16px;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  color: #a01303;
+  transition: all 300ms ease;
+}
+
+
+
+/* MAIN */
+
+.container {
+  padding: 20px 0px 80px;
+}
+
+.row {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.search__results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 64px 24px;
+}
+
+.search__year {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.year__title {
+  padding-right: 12px;
+}
+
+select {
+  background-color: white;
+  border-radius: 4px;
+  border: none;
+  color: black;
+  height: 20px;
+  line-height: 40px;
+  outline: none;
+  padding: 0 16px;
+  width: 100%;
+  max-width: 200px;
+}
+
+
+.movie__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.movie {
+  width: 100%;
+}
+
+.movie__card {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin: 10px;
+  padding-bottom: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 12px;
+  height: 400px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie__card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.movie__img {
+  border-radius: 12px;
+  width: 100%;
+  padding: 8px;
+  height: 320px;
+}
+
+.movie__title,
+.movie__year {
+  color: black;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+
+/* FOOTER */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  border: 2px solid #a01303;;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer__link {
+  padding: 20px 40px 8px 40px;
+
+}

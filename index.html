@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Selector Project</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <script src="index.js" defer></script>
+</head>
+<body>
+  
+  <section id="landing-page"> 
+    <nav class="nav__bar">
+      <div class="nav__container">
+      <figure>
+        <img class="logo__img" src="./Assets/MovieLogo.avif" alt="">
+      </figure>
+      <ul class="nav__link--list">
+        <li class="nav__link">
+          <a href="#" class="
+          nav__link--anchor
+          link__hover-effect
+          link__hover-effect--black
+          ">Home</a>
+        </li>
+        <li class="nav__link">
+          <a href="#" class="
+          nav__link--anchor
+          link__hover-effect
+          link__hover-effect--black
+          ">Find Movies</a>
+        </li>
+        <li class="nav__link">
+          <a href="#" class="
+          nav__link--anchor
+          link__hover-effect
+          link__hover-effect--black
+          link__contact
+          ">Contact</a>
+        </li>
+      </ul>
+    </div>
+   
+  <div class="wrapper">
+    <div class="search__block">
+      <h1>Browse Movies</h1>
+      <form class="search__form" role="search">
+          <input type="text" id="search__input" placeholder="Search movies..." class="search__movie" onchange="onSearchChange(event)">
+          <div class="btn" type="submit" id="search__button">
+            <i class="fas fa-search fa-2x"></i>
+          </div>
+      </form>
+    </div>
+  </div>
+ 
+  </nav>
+  </section>
+
+<main id="movies__main">
+  <section>
+    <div class="container"> 
+      <div class="row">
+        <div class="search__results">
+          <h3>
+            Search Results:
+          </h3>
+          <div class="search__year">
+          <h4 class="year__title">
+            Year
+          </h4>
+          <select name="" id="filter" onchange="sortMovies(event)"> 
+            <option value="" disabled selected>Sort</option>
+            <option value="OLDEST_TO_NEWEST">Oldest to Newest</option>
+            <option value="NEWEST_TO_OLDEST">Newest to Oldest</option>
+          </select>
+        </div>
+      </div>
+
+        <div class="movie__list">
+          <div class="movie">
+            <div class="movie__card">
+              <div class="movie__card--container">
+                <figure class="movies__img">
+                  <img src="" alt="" class="movie__img">
+                </figure>
+                <div class="movie__details">
+                <div class="movie__title">Title</div>
+                <div class="movie__year">Release Date:</div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div id="lastFooter">
+  <ul class="footer__links">
+    <li class="footer__link">
+      <a href="">About</a>
+    </li>
+    <li class="footer__link">
+      <a href="">Contact</a>
+    </li>
+    <li class="footer__link">
+      <a href="">Terms</a>
+    </li>
+    <li class="footer__link">
+      <a href="">License</a>
+    </li>
+  </ul>
+  </div>
+  <div id="copyRight">
+    Copyright &copy; 2025 All Rights Reserved
+    </div>
+  </footer>
+
+  <div class="row" id="root"></div>
+
+</body>
+</html>

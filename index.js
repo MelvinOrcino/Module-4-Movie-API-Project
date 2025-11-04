@@ -1,12 +1,14 @@
+let currentMovies = [];
 const moviesListEl = document.querySelector(".movie__list");
 
 
 async function onSearchChange(event) {
+  currentMovies = moviesData.Search;
   const id = event.target.value;
   const movies = await fetch(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${id}`);
   const moviesData =  await movies.json();
   moviesListEl.innerHTML = moviesData.Search.slice(0,6).map((movie) => {
-    return `<div class="movie__card" onclick="showMovies(${movie.imdbID})>
+    return `<div class="movie__card" onclick="showMovies('${movie.imdbID}')">
           <div class="movie__card--container">
             <figure class="movies__img">
               <img src="${movie.Poster}" alt="" class="movie__img">
@@ -26,19 +28,15 @@ async function main(filter) {
   const moviesData = await movies.json();
 
 
-
-  if (filter === 'OLDEST_TO_NEWEST') {
-    moviesData.Search.sort((a, b) => a.Year - b.Year);
+  if (!moviesData.Search) {
+    moviesListEl.innerHTML = "<p>No movies found. Try another title.</p>";
+    return;
   }
-  else if (filter === 'NEWEST_TO_OLDEST') {
-    moviesData.Search.sort((a, b) => b.Year - a.Year);
-  }
-
 
 
 
   const  moviesHTML = moviesData.Search.slice(0,6).map((movie) => {
-    return `<div class="movie__card" onclick="showMovies(${movie.imdbID})>
+    return `<div class="movie__card" onclick="showMovies('${movie.imdbID}')">
           <div class="movie__card--container">
             <figure class="movies__img">
               <img src="${movie.Poster}" alt="" class="movie__img">
@@ -60,5 +58,12 @@ async function main(filter) {
   
   
     function sortMovies(event) {
-      main(event.target.value);
+      if (event.target.value === "OLDEST_TO_NEWEST") {
+        currentMovies.sort((a, b) => a.Year - b.Year);
+      } else {
+        currentMovies.sort((a, b) => b.Year - a.Year);
+      }
+      
     }
+
+    

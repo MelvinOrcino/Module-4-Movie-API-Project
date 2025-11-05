@@ -48,11 +48,11 @@
   <div class="wrapper">
     <div class="search__block">
       <h1>Browse Movies</h1>
-      <form class="search__form" role="search">
-          <input type="text" id="search__input" placeholder="Search movies..." class="search__movie" onchange="onSearchChange(event)">
-          <div class="btn" type="submit" id="search__button">
+      <form class="search__form" role="search" onchange="onSearchSubmit(event)">
+          <input type="text" id="search__input" placeholder="Search movies..." class="search__movie">
+          <button class="btn" type="submit" id="search__button">
             <i class="fas fa-search fa-2x"></i>
-          </div>
+          </button>
       </form>
     </div>
   </div>
@@ -83,19 +83,7 @@
 
 
         <div class="movie__list">
-          <div class="movie">
-            <div class="movie__card">
-              <div class="movie__card--container">
-                <figure class="movies__img">
-                  <img src="" alt="" class="movie__img">
-                </figure>
-                <div class="movie__details">
-                <div class="movie__title">Title</div>
-                <div class="movie__year">Release Date:</div>
-              </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
 
        

@@ -1,14 +1,43 @@
 let currentMovies = [];
 const moviesListEl = document.querySelector(".movie__list");
+const searchInput = document.getElementById('search__input');
+const searchTerm = searchInput.value.trim();
 
 
-async function onSearchChange(event) {
-  currentMovies = moviesData.Search;
-  const id = event.target.value;
-  const movies = await fetch(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${id}`);
-  const moviesData =  await movies.json();
-  moviesListEl.innerHTML = moviesData.Search.slice(0,6).map((movie) => {
-    return `<div class="movie__card" onclick="showMovies('${movie.imdbID}')">
+
+async function onSearchSubmit(event) {
+  event.preventDefault();
+
+  const searchInput = document.getElementById('search__input');
+  const searchTerm = searchInput.value.trim();
+
+
+  if (!searchTerm) {
+    moviesListEl.innerHTML = "<p>Please enter a movie title.</p>";
+    return;
+  }
+
+  try {
+    const movies = await fetch(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${id}`);
+    const moviesData =  await movies.json();
+    currentMovies = moviesData.Search;
+    renderMovies();
+  }
+
+  catch {
+    moviesListEl.innerHTML = "<p>Error loading movies. Please try again.</p>";
+     console.error('Error fetching movies:', error);
+  }
+
+
+
+ }
+
+
+
+function renderMovies(movies) {
+  moviesListEl.innerHTML = movies.map((movie) => {
+    return `<div class="movie__card">
           <div class="movie__card--container">
             <figure class="movies__img">
               <img src="${movie.Poster}" alt="" class="movie__img">
@@ -19,8 +48,11 @@ async function onSearchChange(event) {
             </div>
           </div>
         </div>`
-      }).join('');
- }
+  }).join('');
+}
+
+
+
 
 
 async function main(filter) {
@@ -36,7 +68,7 @@ async function main(filter) {
 
 
   const  moviesHTML = moviesData.Search.slice(0,6).map((movie) => {
-    return `<div class="movie__card" onclick="showMovies('${movie.imdbID}')">
+    return `<div class="movie__card">
           <div class="movie__card--container">
             <figure class="movies__img">
               <img src="${movie.Poster}" alt="" class="movie__img">
@@ -58,12 +90,16 @@ async function main(filter) {
   
   
     function sortMovies(event) {
+      if (!currentMovies.length) {
+        return;
+      }
+
       if (event.target.value === "OLDEST_TO_NEWEST") {
         currentMovies.sort((a, b) => a.Year - b.Year);
-      } else {
+      } 
+      else if (event.target.value === "NEWEST_TO_OLDEST") {
         currentMovies.sort((a, b) => b.Year - a.Year);
       }
-      
-    }
 
-    
+      renderMovies(currentMovies.slice(0,6));
+  }

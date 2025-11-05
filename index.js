@@ -18,10 +18,10 @@ async function onSearchSubmit(event) {
   }
 
   try {
-    const movies = await fetch(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${id}`);
+    const movies = await fetch(`https://www.omdbapi.com/?apikey=cb5f54d1&s=${searchTerm}`);
     const moviesData =  await movies.json();
     currentMovies = moviesData.Search;
-    renderMovies();
+    renderMovies(currentMovies);
   }
 
   catch {
